@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.cayenne.CayenneDataObject;
 import org.apache.cayenne.examples.Auto;
+import org.apache.cayenne.examples.Auto2;
 import org.apache.cayenne.exp.Property;
 
 /**
@@ -21,7 +22,7 @@ public abstract class _Composite extends CayenneDataObject {
 
     public static final Property<Integer> O = new Property<Integer>("o");
     public static final Property<List<Auto>> AUTO1 = new Property<List<Auto>>("auto1");
-    public static final Property<List<Auto>> AUTO2 = new Property<List<Auto>>("auto2");
+    public static final Property<List<Auto2>> AUTO2 = new Property<List<Auto2>>("auto2");
 
     public void setO(int o) {
         writeProperty("o", o);
@@ -43,15 +44,15 @@ public abstract class _Composite extends CayenneDataObject {
     }
 
 
-    public void addToAuto2(Auto obj) {
+    public void addToAuto2(Auto2 obj) {
         addToManyTarget("auto2", obj, true);
     }
-    public void removeFromAuto2(Auto obj) {
+    public void removeFromAuto2(Auto2 obj) {
         removeToManyTarget("auto2", obj, true);
     }
     @SuppressWarnings("unchecked")
-    public List<Auto> getAuto2() {
-        return (List<Auto>)readProperty("auto2");
+    public List<Auto2> getAuto2() {
+        return (List<Auto2>)readProperty("auto2");
     }
 
 

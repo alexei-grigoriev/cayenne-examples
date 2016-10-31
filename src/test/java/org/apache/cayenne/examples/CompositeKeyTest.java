@@ -22,7 +22,7 @@ public class CompositeKeyTest {
 	public void compositeKeyInsertPasses(){
 		ObjectContext ctx = runtime.newContext();
 		Auto a1 = new Auto();
-		Auto a2 = new Auto();
+		Auto2 a2 = new Auto2();
 		Composite c = ctx.newObject(Composite.class);
 		c.addToAuto1(a1);
 		c.addToAuto2(a2);

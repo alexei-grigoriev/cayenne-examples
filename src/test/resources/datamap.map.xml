@@ -7,6 +7,9 @@
 	<db-entity name="auto">
 		<db-attribute name="auto_key" type="BIGINT" isPrimaryKey="true" isMandatory="true"/>
 	</db-entity>
+	<db-entity name="auto2">
+		<db-attribute name="auto_key" type="BIGINT" isPrimaryKey="true" isMandatory="true"/>
+	</db-entity>
 	<db-entity name="composite">
 		<db-attribute name="k1" type="BIGINT" isPrimaryKey="true" isMandatory="true"/>
 		<db-attribute name="k2" type="BIGINT" isPrimaryKey="true" isMandatory="true"/>
@@ -17,24 +20,26 @@
 	</db-entity>
 	<obj-entity name="Auto" className="org.apache.cayenne.examples.Auto" dbEntityName="auto">
 	</obj-entity>
+	<obj-entity name="Auto2" className="org.apache.cayenne.examples.Auto2" dbEntityName="auto2">
+	</obj-entity>
 	<obj-entity name="Composite" className="org.apache.cayenne.examples.Composite" dbEntityName="composite">
 		<obj-attribute name="o" type="int" db-attribute-path="o"/>
 	</obj-entity>
 	<obj-entity name="Dummy" className="org.apache.cayenne.examples.Dummy" dbEntityName="dummy">
 		<obj-attribute name="dummy" type="java.lang.String" db-attribute-path="dummy"/>
 	</obj-entity>
-	<db-relationship name="untitledRel" source="auto" target="composite" toMany="false">
+	<db-relationship name="untitledRel" source="auto" target="composite" toDependentPK="true" toMany="false">
 		<db-attribute-pair source="auto_key" target="k1"/>
 	</db-relationship>
-	<db-relationship name="untitledRel1" source="auto" target="composite" toMany="false">
+	<db-relationship name="untitledRel2" source="auto2" target="composite" toDependentPK="true" toMany="false">
 		<db-attribute-pair source="auto_key" target="k2"/>
 	</db-relationship>
-	<db-relationship name="auto1" source="composite" target="auto" toDependentPK="true" toMany="true">
+	<db-relationship name="auto1" source="composite" target="auto" toMany="true">
 		<db-attribute-pair source="k1" target="auto_key"/>
 	</db-relationship>
-	<db-relationship name="auto2" source="composite" target="auto" toDependentPK="true" toMany="true">
+	<db-relationship name="auto2" source="composite" target="auto2" toMany="true">
 		<db-attribute-pair source="k2" target="auto_key"/>
 	</db-relationship>
 	<obj-relationship name="auto1" source="Composite" target="Auto" deleteRule="Nullify" db-relationship-path="auto1"/>
-	<obj-relationship name="auto2" source="Composite" target="Auto" deleteRule="Nullify" db-relationship-path="auto2"/>
+	<obj-relationship name="auto2" source="Composite" target="Auto2" deleteRule="Nullify" db-relationship-path="auto2"/>
 </data-map>
