@@ -23,16 +23,16 @@
 	<obj-entity name="Dummy" className="org.apache.cayenne.examples.Dummy" dbEntityName="dummy">
 		<obj-attribute name="dummy" type="java.lang.String" db-attribute-path="dummy"/>
 	</obj-entity>
-	<db-relationship name="untitledRel" source="auto" target="composite" toDependentPK="true" toMany="false">
+	<db-relationship name="untitledRel" source="auto" target="composite" toMany="false">
 		<db-attribute-pair source="auto_key" target="k1"/>
 	</db-relationship>
-	<db-relationship name="untitledRel1" source="auto" target="composite" toDependentPK="true" toMany="false">
+	<db-relationship name="untitledRel1" source="auto" target="composite" toMany="false">
 		<db-attribute-pair source="auto_key" target="k2"/>
 	</db-relationship>
-	<db-relationship name="auto1" source="composite" target="auto" toMany="true">
+	<db-relationship name="auto1" source="composite" target="auto" toDependentPK="true" toMany="true">
 		<db-attribute-pair source="k1" target="auto_key"/>
 	</db-relationship>
-	<db-relationship name="auto2" source="composite" target="auto" toMany="true">
+	<db-relationship name="auto2" source="composite" target="auto" toDependentPK="true" toMany="true">
 		<db-attribute-pair source="k2" target="auto_key"/>
 	</db-relationship>
 	<obj-relationship name="auto1" source="Composite" target="Auto" deleteRule="Nullify" db-relationship-path="auto1"/>
