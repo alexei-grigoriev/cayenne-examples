@@ -1,7 +1,5 @@
 package org.apache.cayenne.examples.auto;
 
-import java.util.List;
-
 import org.apache.cayenne.CayenneDataObject;
 import org.apache.cayenne.examples.Auto;
 import org.apache.cayenne.examples.Auto2;
@@ -21,8 +19,8 @@ public abstract class _Composite extends CayenneDataObject {
     public static final String K2_PK_COLUMN = "k2";
 
     public static final Property<Integer> O = new Property<Integer>("o");
-    public static final Property<List<Auto>> AUTO1 = new Property<List<Auto>>("auto1");
-    public static final Property<List<Auto2>> AUTO2 = new Property<List<Auto2>>("auto2");
+    public static final Property<Auto> AUTO1 = new Property<Auto>("auto1");
+    public static final Property<Auto2> AUTO2 = new Property<Auto2>("auto2");
 
     public void setO(int o) {
         writeProperty("o", o);
@@ -32,27 +30,21 @@ public abstract class _Composite extends CayenneDataObject {
         return (value != null) ? (Integer) value : 0;
     }
 
-    public void addToAuto1(Auto obj) {
-        addToManyTarget("auto1", obj, true);
+    public void setAuto1(Auto auto1) {
+        setToOneTarget("auto1", auto1, true);
     }
-    public void removeFromAuto1(Auto obj) {
-        removeToManyTarget("auto1", obj, true);
-    }
-    @SuppressWarnings("unchecked")
-    public List<Auto> getAuto1() {
-        return (List<Auto>)readProperty("auto1");
+
+    public Auto getAuto1() {
+        return (Auto)readProperty("auto1");
     }
 
 
-    public void addToAuto2(Auto2 obj) {
-        addToManyTarget("auto2", obj, true);
+    public void setAuto2(Auto2 auto2) {
+        setToOneTarget("auto2", auto2, true);
     }
-    public void removeFromAuto2(Auto2 obj) {
-        removeToManyTarget("auto2", obj, true);
-    }
-    @SuppressWarnings("unchecked")
-    public List<Auto2> getAuto2() {
-        return (List<Auto2>)readProperty("auto2");
+
+    public Auto2 getAuto2() {
+        return (Auto2)readProperty("auto2");
     }
 
 

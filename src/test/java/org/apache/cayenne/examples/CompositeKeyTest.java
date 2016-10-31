@@ -24,8 +24,8 @@ public class CompositeKeyTest {
 		Auto a1 = new Auto();
 		Auto2 a2 = new Auto2();
 		Composite c = ctx.newObject(Composite.class);
-		c.addToAuto1(a1);
-		c.addToAuto2(a2);
+		c.setAuto1(a1);
+		c.setAuto2(a2);
 		c.setO(10);
 		ctx.commitChanges();
 	}
